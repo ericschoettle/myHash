@@ -1,7 +1,7 @@
 require('sinatra')
 require('sinatra/reloader')
 also_reload('lib/**/*.rb')
-require('./lib/triangle')
+require('./lib/myHash')
 require('pry')
 
 get('/') do
@@ -9,7 +9,13 @@ get('/') do
 end
 
 get('/result') do
-  triangle = Triangle.new(params.fetch('side1').to_i(), params.fetch('side2').to_i(), params.fetch('side3').to_i())
-  @result = triangle.type()
+  binding.pry
+  if params.fetch('keys').class == "Array"
+    hash = MyHash.new(params.fetch('keys').split(","), params.fetch('values').split(","))
+  else
+    hash = MyHash.new()
+    hash.myStore(params.fetch('keys'), params.fetch('values'))
+  end
+  @result = hash.myDisplay()
   erb(:result)
 end
