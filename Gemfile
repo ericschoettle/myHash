@@ -4,3 +4,4 @@ gem ('sinatra')
 
 gem ('pry')
 gem ('launchy')
+gem('capybara')

@@ -4,7 +4,7 @@ require('./lib/triangle')
 describe(Triangle) do
   describe('type') do
     it "tests if three sides are a triangle" do
-      test_triange = Triangle.new(1,2,5)
+      test_triange = Triangle.new(2,17,4)
       expect(test_triange.type()).to(eq("Not a triangle"))
     end
     it "tests if three sides are equal" do
