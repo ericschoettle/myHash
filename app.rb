@@ -9,13 +9,7 @@ get('/') do
 end
 
 get('/result') do
-  binding.pry
-  if params.fetch('keys').class == "Array"
-    hash = MyHash.new(params.fetch('keys').split(","), params.fetch('values').split(","))
-  else
-    hash = MyHash.new()
-    hash.myStore(params.fetch('keys'), params.fetch('values'))
-  end
+  hash = MyHash.new(params.fetch('keys').split(","), params.fetch('values').split(","))
   @result = hash.myDisplay()
   erb(:result)
 end
